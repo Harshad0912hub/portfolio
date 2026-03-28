@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Architectural Minimalist Palette */
+  --bg-primary: #f7f7f7;
+  /* Off-White Document Base */
+  --bg-secondary: #ffffff;
+  /* Bright White Containers */
+  --text-primary: #111111;
+  /* Stark Jet Black Text */
+  --text-secondary: #666666;
+  /* Accessible Gray */
+
+  --accent-primary: #ff8a00;
+  /* Framer Orange Accent */
+  --accent-secondary: #e07a00;
+  --success: #12b76a;
+  /* Green Status Dot */
+
+  --border-color: #e5e5e5;
+  /* Subtle framing grid lines */
+
+  /* Modern Clean Fonts */
+  --font-heading: 'Bebas Neue', 'Oswald', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+
+  /* The Defining Architectural Grid Pattern */
+  background-image: repeating-linear-gradient(to right,
+      var(--border-color) 0,
+      var(--border-color) 1px,
+      transparent 1px,
+      transparent 12.5%);
+  background-size: 100% 100%;
+}
+
+@media (max-width: 768px) {
+  body {
+    /* Larger grid cells on mobile */
+    background-image: repeating-linear-gradient(to right,
+        var(--border-color) 0,
+        var(--border-color) 1px,
+        transparent 1px,
+        transparent 25%);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 8rem 0;
+  /* Huge spacious padding */
+  position: relative;
+}
+
+.bg-alt {
+  background-color: transparent;
+  /* Rely exclusively on grid */
+}
+
+/* Framer-style Floating Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse-soft {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+.pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
