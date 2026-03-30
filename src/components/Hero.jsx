@@ -74,9 +74,9 @@ const Hero = () => {
           }}>
             <div style={{
               position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-              backgroundImage: 'url("/hero_photo.jpg")',
+              backgroundImage: 'url("profile.png")',
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundPosition: 'top center',
               opacity: 0.9,
               transform: `translate(${tilt.x * 0.5}px, ${tilt.y * 0.5}px) scale(1.1)`,
               transition: 'transform 0.1s ease-out'

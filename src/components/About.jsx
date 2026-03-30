@@ -26,7 +26,7 @@ const About = () => {
             }}>
               HS
               <img
-                src="/profile.png"
+                src="profile.png"
                 alt="Harshad Shinde"
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                 onError={(e) => e.target.style.display = 'none'}

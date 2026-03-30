@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const Contact = () => {
   useScrollReveal();
+  const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setStatus("Sending...");
+    
+    const formData = new FormData(event.target);
+
+    // Web3Forms Access Key
+    formData.append("access_key", "1b0f35a8-9b21-4ac5-a235-bca33a82f016");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("Message sent successfully! I will get back to you soon.");
+        event.target.reset();
+      } else {
+        console.error("Error", data);
+        setStatus("Failed to send message please try again.");
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      setStatus("An error occurred. Please try again later.");
+    }
+    
+    setIsSubmitting(false);
+  };
 
   return (
     <section id="contact" className="bg-alt">
@@ -38,14 +73,18 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <form className="contact-form" onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div className="form-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(160px, 100%), 1fr))', gap: '1.25rem' }}>
-              <input type="text" placeholder="First Name" required />
-              <input type="text" placeholder="Last Name" required />
+              <input type="text" name="First Name" placeholder="First Name" required />
+              <input type="text" name="Last Name" placeholder="Last Name" required />
             </div>
-            <input type="email" placeholder="Email Address" required />
-            <textarea rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Send Message</button>
+            <input type="email" name="Email" placeholder="Email Address" required />
+            <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+            
+            <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer', transition: 'all 0.3s ease' }}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+            <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', color: status.includes("successfully") ? 'var(--accent-primary)' : 'var(--text-secondary)', fontSize: '0.95rem', minHeight: '1.5rem', transition: 'opacity 0.3s', opacity: status ? 1 : 0 }}>{status}</span>
           </form>
 
         </div>
