@@ -3,6 +3,20 @@ import React, { useState, useEffect } from 'react';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -54,6 +68,14 @@ const Navbar = () => {
             >
               <i className="fa-brands fa-linkedin"></i>
             </a>
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle dark mode"
+              style={{ background: 'none', border: 'none', fontSize: '1.25rem', color: 'var(--text-primary)', cursor: 'pointer', display: 'flex', alignItems: 'center', transition: 'color 0.3s' }}
+            >
+              <i className={theme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun'}></i>
+            </button>
             {/* Hamburger — only visible on mobile */}
             <button
               className="menu-toggle"

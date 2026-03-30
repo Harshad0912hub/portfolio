@@ -3,6 +3,23 @@
    Breakpoints: 480px | 768px | 900px | 1024px
    ============================================ */
 
+body.dark-theme {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a0a0a0;
+  --border-color: #333333;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+body.dark-theme .glass-panel {
+  background: rgba(30, 30, 30, 0.95);
+}
+
 /* Utility: hide/show based on screen */
 .hide-mobile { display: inline-flex !important; }
 @media (max-width: 768px) { .hide-mobile { display: none !important; } }
@@ -54,9 +71,17 @@
   transition: padding 0.3s ease, background 0.3s ease;
 }
 
+body.dark-theme .navbar {
+  background: rgba(18, 18, 18, 0.92);
+}
+
 .navbar.scrolled {
   padding: 0.85rem 0;
   background: rgba(247, 247, 247, 0.98);
+}
+
+body.dark-theme .navbar.scrolled {
+  background: rgba(18, 18, 18, 0.98);
 }
 
 .nav-container {

@@ -84,11 +84,9 @@ const Hero = () => {
 
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.4))' }}></div>
 
-            <div className="floating" style={{
+            <div className="floating glass-panel" style={{
               position: 'absolute', bottom: '2.5rem', left: '1.5rem', right: '1.5rem', zIndex: 1,
               padding: '1.5rem',
-              background: 'rgba(255,255,255,0.95)',
-              backdropFilter: 'blur(10px)',
               borderRadius: '24px', border: '1px solid var(--border-color)',
               textAlign: 'center', boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
             }}>
