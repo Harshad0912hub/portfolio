@@ -8,7 +8,9 @@ const projectsData = [
     category: 'QA & BA Lead',
     icon: 'fa-solid fa-users',
     description: 'Led the QA and BA efforts for a large-scale, women-centric platform engineered to support millions of active users. Authored comprehensive BRDs covering complex modules like Womunity, Womtime, Womdeal, and real-time WebSocket messaging.',
-    impact: 'Orchestrated comprehensive UAT testing for critical subscription paywalls (Stripe/App Store), ensured GDPR compliance, and designed precise acceptance criteria.'
+    impact: 'Orchestrated comprehensive UAT testing for critical subscription paywalls (Stripe/App Store), ensured GDPR compliance, and designed precise acceptance criteria.',
+    confluence: '#', // Add Confluence link here
+    apiDocs: '#'     // Add API Docs link here
   },
   {
     id: 2,
@@ -16,7 +18,9 @@ const projectsData = [
     category: 'QA & BA Lead',
     icon: 'fa-solid fa-leaf',
     description: 'Drove the requirements and quality assurance for Kindpocket (formerly Green-Dose), a mobile-first platform mitigating wellness product waste by offering near-expiry inventory at affordable rates. Iteratively defined user stories for Clearance Workflows, Multi-Vendor Portals, and real-time delivery tracking.',
-    impact: 'Streamlined the MVP sprint deliveries by mapping out precise acceptance criteria for smart cart logic, B2C/B2B inventory models, and payment gateways.'
+    impact: 'Streamlined the MVP sprint deliveries by mapping out precise acceptance criteria for smart cart logic, B2C/B2B inventory models, and payment gateways.',
+    confluence: '#', // Add Confluence link here
+    apiDocs: '#'     // Add API Docs link here
   },
   {
     id: 3,
@@ -24,7 +28,9 @@ const projectsData = [
     category: 'Automation Specialist',
     icon: 'fa-solid fa-shield-halved',
     description: 'Architected a robust automation framework utilizing Selenium, Java, and TestNG to eliminate manual redundancy. Implemented Data-Driven Testing (DDT) and the Page Object Model (POM) design pattern for high maintainability across hundreds of test cases.',
-    impact: 'Reduced manual regression cycle time by 60%, integrated detailed Extent Reports for quick stakeholder visibility, and improved delivery confidence.'
+    impact: 'Reduced manual regression cycle time by 60%, integrated detailed Extent Reports for quick stakeholder visibility, and improved delivery confidence.',
+    confluence: '#', // Add Confluence link here
+    apiDocs: '#'     // Add API Docs link here
   }
 ];
 
@@ -79,9 +85,24 @@ const Projects = () => {
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1.05rem' }}>
                   {project.description}
                 </p>
-                <p style={{ color: 'var(--text-primary)', fontWeight: '500' }}>
-                  <strong style={{ color: 'var(--accent-primary)' }}>Impact:</strong> {project.impact}
-                </p>
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <p style={{ color: 'var(--text-primary)', fontWeight: '500', marginBottom: '0.5rem' }}>
+                    <strong style={{ color: 'var(--accent-primary)' }}>Impact:</strong> {project.impact}
+                  </p>
+                </div>
+
+                <div className="project-links" style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>
+                  {project.confluence && (
+                    <a href={project.confluence} target="_blank" rel="noopener noreferrer" className="btn-text" style={{ fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'var(--text-secondary)' }}>
+                      <i className="fa-brands fa-confluence"></i> Confluence 
+                    </a>
+                  )}
+                  {project.apiDocs && (
+                    <a href={project.apiDocs} target="_blank" rel="noopener noreferrer" className="btn-text" style={{ fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'var(--text-secondary)' }}>
+                      <i className="fa-solid fa-code"></i> API Docs
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

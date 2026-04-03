@@ -25,8 +25,9 @@ const Experience = () => {
 
               <ul style={{ color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '1rem', paddingLeft: '1.5rem', listStyleType: 'disc' }}>
                 <li>Bridged the gap between non-technical stakeholders and engineering teams by actively translating product vision into comprehensive user stories and explicit Acceptance Criteria.</li>
+                <li>Maintained centralized <strong>Confluence documentation</strong> and <strong>API technical specifications</strong> to ensure seamless knowledge transfer across cross-functional teams.</li>
                 <li>Executed deep manual testing and UAT across complex mobile apps and web portals, ensuring zero-defect deliverables for highly scalable platforms like the Womaty Network.</li>
-                <li><strong>Tools & Frameworks:</strong> Jira, Postman, Selenium Webdriver, Agile/Scrum.</li>
+                <li><strong>Tools & Frameworks:</strong> Jira, Confluence, Postman (API Testing), Swagger, Selenium, Agile/Scrum.</li>
               </ul>
             </div>
           </div>

@@ -134,3 +134,28 @@ section {
 .pulse-soft {
   animation: pulse-soft 3s ease-in-out infinite;
 }
+
+.btn-text {
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.btn-text::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent-primary);
+  transition: width 0.3s ease;
+}
+
+.btn-text:hover {
+  color: var(--text-primary) !important;
+}
+
+.btn-text:hover::after {
+  width: 100%;
+}
